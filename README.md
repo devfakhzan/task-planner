@@ -6,6 +6,7 @@ A Vuetify Task Planner Project by Fakhzan
 - Multiple Attachments
 - Data Persistence (localStorage)
 - Drag & Drop
+- Usable in mobile devices (Move / Copy Task action button as a drag & drop alternative)
 
 
 ## Demo
