@@ -1,4 +1,16 @@
-# task-planner
+# Task Planner Project (task-planner)
+A Vuetify Task Planner Project by Fakhzan
+
+
+## Some Features
+- Multiple Attachments
+- Data Persistence (localStorage)
+- Drag & Drop
+
+
+## Demo
+[Click here](https://devfakhzan.github.io/)
+
 
 ## Project setup
 ```

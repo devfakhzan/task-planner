@@ -1,32 +1,74 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark :elevation="0" @click="goHome">
+      <div class="d-flex align-center logo">
+        <tp-logo />
+        <strong class="ml-2">The Task Planner</strong>
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/devfakhzan/task-planner"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Source</span>
+        <v-icon>mdi-github</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <transition name="slide-fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
+  </v-app>
 </template>
 
+<script>
+import TpLogo from "@/components/svg/TpLogo.vue";
+
+export default {
+  name: "App",
+
+  components: {
+    TpLogo,
+  },
+
+  created(){
+    const boardsData = localStorage.getItem("boards");
+    if (boardsData && this.$root.isValidJson(boardsData)) {
+      this.$store.commit('initBoards', JSON.parse(boardsData));
+    }
+  },
+
+  methods: {
+    goHome() {
+      if (this.$route.fullPath !== '/') {
+        this.$router.push('/');
+      }
+    }
+  }
+
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.slide-fade-enter-active, .slide-fade-up-enter-active {
+  transition: all .2s ease;
 }
 
-#nav {
-  padding: 30px;
+.slide-fade-leave-active, .slide-fade-up-leave-active {
+  transition: all .2s ease;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.slide-fade-up-enter, .slide-fade-up-leave-to {
+  transform: translateY(10px);
+  opacity: 0;
 }
+
 </style>
