@@ -764,8 +764,7 @@ export default {
       this.showSnackBar("Task deleted successfully");
 
       this.toBeDeleted = null;
-
-      //await this.saveBoards();
+      
       await this.$store.dispatch("saveBoards");
     },
     getRandomId() {
@@ -791,7 +790,6 @@ export default {
         ...this.addingTask,
       });
 
-      //await this.saveBoards();
       await this.$store.dispatch("saveBoards");
 
       this.showAddTaskDialog = false;
@@ -927,7 +925,6 @@ export default {
 
       this.showMovingTaskDialog = false;
       this.clearMovingTask();
-      //await this.saveBoards();
       await this.$store.dispatch("saveBoards");
     },
     async onDrop(e, details) {
@@ -991,60 +988,6 @@ export default {
       makeCopy: false,
     },
     reveal: false,
-    // boards: [
-    //   {
-    //     title: "Pending",
-    //     color: "red",
-    //     tasks: [
-    //       {
-    //         id: "21qhd12",
-    //         title: "Apple",
-    //         description: "blaba",
-    //         attachment: [],
-    //         time: "12:00",
-    //         timeAmPm: "12:00 PM",
-    //       },
-    //       {
-    //         id: "21f32dca12",
-    //         title: "Orange",
-    //         description: "blabaxa",
-    //         attachment: [],
-    //         time: "01:00",
-    //         timeAmPm: "1:00 AM",
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     title: "Processing",
-    //     color: "blue",
-    //     tasks: [
-    //       {
-    //         id: "21f32dwwe12",
-    //         parent: "Processing",
-    //         title: "Banana",
-    //         description: "blabaxa",
-    //         attachment: [],
-    //         time: "19:30",
-    //         timeAmPm: "7:30 PM",
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     title: "Done",
-    //     color: "green",
-    //     tasks: [
-    //       {
-    //         id: "21f32dfeww22wwe12",
-    //         parent: "Processing",
-    //         title: "Peaches",
-    //         description: "blabaxa",
-    //         attachment: [],
-    //         time: "21:21",
-    //         timeAmPm: "9:21 PM",
-    //       },
-    //     ],
-    //   },
-    // ],
     boards: [],
     addingTask: {
       title: "",
