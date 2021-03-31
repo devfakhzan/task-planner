@@ -764,7 +764,7 @@ export default {
       this.showSnackBar("Task deleted successfully");
 
       this.toBeDeleted = null;
-      
+
       await this.$store.dispatch("saveBoards");
     },
     getRandomId() {
@@ -940,7 +940,6 @@ export default {
       this.hideDropZones();
       e.target.style.color = "";
 
-      //await this.saveBoards();
       await this.$store.dispatch("saveBoards");
     },
   },
